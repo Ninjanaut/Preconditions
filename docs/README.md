@@ -4,11 +4,11 @@ Welcome to the Preconditions project website! Preconditions is simple and lightw
 
 from nuget package manager console
 ```powershell
-PM> Install-Package Preconditions
+PM> Install-Package Ninjanaut.Preconditions
 ```
 from command line
 ```cmd
-> dotnet add package Preconditions
+> dotnet add package Ninjanaut.Preconditions
 ```
 
 # Usage
