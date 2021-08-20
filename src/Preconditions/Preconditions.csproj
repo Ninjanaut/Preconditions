@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Ninjanaut</Authors>
+    <Company />
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Ninjanaut/Preconditions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Simple and lightweight C# library to ease arguments checks. Inspired by lecaillon preconditions library and jskeet preconditions classes. Preconditions contains Check class as simple wrapper over the ArgumentException and ArgumentNullException classes.</Description>
+    <PackageProjectUrl>https://github.com/Ninjanaut/Preconditions</PackageProjectUrl>
+    <PackageTags>preconditions, check, guard, contracts, guava</PackageTags>
+    <PackageId>Ninjanaut.Preconditions</PackageId>
+  </PropertyGroup>
+
+</Project>
