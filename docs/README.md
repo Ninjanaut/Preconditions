@@ -1,6 +1,6 @@
 Welcome to the Preconditions project website! Preconditions is simple and lightweight C# library to ease arguments checks.
 
-# Instalation
+# Installation
 
 from nuget package manager console
 ```powershell
