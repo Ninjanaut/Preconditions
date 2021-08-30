@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Ninjanaut.Preconditions
 {
@@ -57,5 +58,25 @@ namespace Ninjanaut.Preconditions
             return value;
         }
 
+        /// <summary>
+        /// Ensures that an argument is not null and is not empty, otherwise throws an ArgumentNullException or ArgumentException.
+        /// </summary>
+        /// <param name="value"> Argument to test </param>
+        /// <param name="paramName"> The name of the parameter that caused the current exception. </param>
+        /// <param name="message"> The error message that explains the reason for the exception. </param>
+        /// <returns> Value argument. </returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static List<T> NotNullOrEmpty<T>(List<T> value, string paramName = null, string message = null)
+        {
+            NotNull(value, paramName, message);
+
+            if (value.Count == 0)
+            {
+                throw new ArgumentException(message, paramName);
+            }
+
+            return value;
+        }
     }
 }
