@@ -49,7 +49,7 @@ Therefore you can create your own static class as in the following example
 ```csharp
 public static class MyCheck
 {
-	public static void NotZero(int number, string message = null, string paramName = null)
+    public static void NotZero(int number, string message = null, string paramName = null)
     {
         if (number == 0)
         {
