@@ -7,7 +7,7 @@ namespace Ninjanaut.Preconditions.Tests
     {
         public class NotNull
         {
-            [Fact(DisplayName = "Argument with value returns value")]
+            [Fact]
             public void Argument_with_value_returns_value()
             {
                 // Arrange
@@ -18,7 +18,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: value, actual: result);
             }
 
-            [Fact(DisplayName = "Null argument throws exception")]
+            [Fact]
             public void Null_argument_throws_exception()
             {
                 // Arrange
@@ -29,7 +29,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentNullException>(act);
 
             }
-            [Fact(DisplayName = "Null argument throws exception with param name")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name()
             {
                 // Arrange
@@ -42,7 +42,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: paramName, actual: exception.ParamName);
             }
 
-            [Fact(DisplayName = "Null argument throws exception with param name and custom message")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name_and_custom_message()
             {
                 // Arrange
@@ -60,7 +60,7 @@ namespace Ninjanaut.Preconditions.Tests
 
         public class Require
         {
-            [Fact(DisplayName = "True condition does not throw exception")]
+            [Fact]
             public void True_condition_does_not_throw_exception()
             {
                 // Arrange
@@ -72,7 +72,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Null(exception);
             }
 
-            [Fact(DisplayName = "False condition throws exception")]
+            [Fact]
             public void False_condition_throws_exception()
             {
                 // Arrange
@@ -83,7 +83,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentException>(act);
             }
 
-            [Fact(DisplayName = "False condition throws exception with custom message")]
+            [Fact]
             public void False_condition_throws_exception_with_custom_message()
             {
                 // Arrange
@@ -96,7 +96,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: message, actual: exception.Message);
             }
 
-            [Fact(DisplayName = "False condition throws exception with custom message and param name")]
+            [Fact]
             public void False_condition_throws_exception_with_custom_message_and_param_name()
             {
                 // Arrange
@@ -114,7 +114,7 @@ namespace Ninjanaut.Preconditions.Tests
 
         public class NotNullOrEmpty
         {
-            [Fact(DisplayName = "Valid argument returns value")]
+            [Fact]
             public void Valid_argument_returns_value()
             {
                 // Arrange
@@ -125,7 +125,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: value, actual: result);
             }
 
-            [Fact(DisplayName = "Null argument throws argument null exception")]
+            [Fact]
             public void Null_argument_throws_exception()
             {
                 // Arrange
@@ -136,7 +136,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentNullException>(act);
             }
 
-            [Fact(DisplayName = "Null argument throws argument null exception with param name")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name()
             {
                 // Arrange
@@ -149,7 +149,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: paramName, actual: exception.ParamName);
             }
 
-            [Fact(DisplayName = "Null argument throws argument null exception with param name and custom message")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name_and_custom_message()
             {
                 // Arrange
@@ -166,7 +166,7 @@ namespace Ninjanaut.Preconditions.Tests
 
 
 
-            [Fact(DisplayName = "Empty argument throws argument exception")]
+            [Fact]
             public void Empty_argument_throws_exception()
             {
                 // Arrange
@@ -177,7 +177,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentException>(act);
             }
 
-            [Fact(DisplayName = "Empty argument throws argument exception with param name")]
+            [Fact]
             public void Empty_argument_throws_exception_with_param_name()
             {
                 // Arrange
@@ -190,7 +190,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: paramName, actual: exception.ParamName);
             }
 
-            [Fact(DisplayName = "Empty argument throws argument exception with param name and custom message")]
+            [Fact]
             public void Empty_argument_throws_exception_with_param_name_and_custom_message()
             {
                 // Arrange
