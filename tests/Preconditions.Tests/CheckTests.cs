@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Ninjanaut.Preconditions.Tests
@@ -7,7 +8,7 @@ namespace Ninjanaut.Preconditions.Tests
     {
         public class NotNull
         {
-            [Fact(DisplayName = "Argument with value returns value")]
+            [Fact]
             public void Argument_with_value_returns_value()
             {
                 // Arrange
@@ -18,7 +19,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: value, actual: result);
             }
 
-            [Fact(DisplayName = "Null argument throws exception")]
+            [Fact]
             public void Null_argument_throws_exception()
             {
                 // Arrange
@@ -29,7 +30,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentNullException>(act);
 
             }
-            [Fact(DisplayName = "Null argument throws exception with param name")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name()
             {
                 // Arrange
@@ -42,7 +43,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: paramName, actual: exception.ParamName);
             }
 
-            [Fact(DisplayName = "Null argument throws exception with param name and custom message")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name_and_custom_message()
             {
                 // Arrange
@@ -60,7 +61,7 @@ namespace Ninjanaut.Preconditions.Tests
 
         public class Require
         {
-            [Fact(DisplayName = "True condition does not throw exception")]
+            [Fact]
             public void True_condition_does_not_throw_exception()
             {
                 // Arrange
@@ -72,7 +73,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Null(exception);
             }
 
-            [Fact(DisplayName = "False condition throws exception")]
+            [Fact]
             public void False_condition_throws_exception()
             {
                 // Arrange
@@ -83,7 +84,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentException>(act);
             }
 
-            [Fact(DisplayName = "False condition throws exception with custom message")]
+            [Fact]
             public void False_condition_throws_exception_with_custom_message()
             {
                 // Arrange
@@ -96,7 +97,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: message, actual: exception.Message);
             }
 
-            [Fact(DisplayName = "False condition throws exception with custom message and param name")]
+            [Fact]
             public void False_condition_throws_exception_with_custom_message_and_param_name()
             {
                 // Arrange
@@ -114,7 +115,7 @@ namespace Ninjanaut.Preconditions.Tests
 
         public class NotNullOrEmpty
         {
-            [Fact(DisplayName = "Valid argument returns value")]
+            [Fact]
             public void Valid_argument_returns_value()
             {
                 // Arrange
@@ -125,7 +126,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: value, actual: result);
             }
 
-            [Fact(DisplayName = "Null argument throws argument null exception")]
+            [Fact]
             public void Null_argument_throws_exception()
             {
                 // Arrange
@@ -136,7 +137,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentNullException>(act);
             }
 
-            [Fact(DisplayName = "Null argument throws argument null exception with param name")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name()
             {
                 // Arrange
@@ -149,7 +150,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: paramName, actual: exception.ParamName);
             }
 
-            [Fact(DisplayName = "Null argument throws argument null exception with param name and custom message")]
+            [Fact]
             public void Null_argument_throws_exception_with_param_name_and_custom_message()
             {
                 // Arrange
@@ -164,9 +165,7 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: "Foo (Parameter 'value')", actual: exception.Message);
             }
 
-
-
-            [Fact(DisplayName = "Empty argument throws argument exception")]
+            [Fact]
             public void Empty_argument_throws_exception()
             {
                 // Arrange
@@ -177,7 +176,7 @@ namespace Ninjanaut.Preconditions.Tests
                 var exception = Assert.Throws<ArgumentException>(act);
             }
 
-            [Fact(DisplayName = "Empty argument throws argument exception with param name")]
+            [Fact]
             public void Empty_argument_throws_exception_with_param_name()
             {
                 // Arrange
@@ -190,11 +189,103 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: paramName, actual: exception.ParamName);
             }
 
-            [Fact(DisplayName = "Empty argument throws argument exception with param name and custom message")]
+            [Fact]
             public void Empty_argument_throws_exception_with_param_name_and_custom_message()
             {
                 // Arrange
                 string value = string.Empty;
+                string paramName = nameof(value);
+                string message = "Foo";
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName, message);
+                // Assert
+                var exception = Assert.Throws<ArgumentException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+                Assert.Equal(expected: "Foo (Parameter 'value')", actual: exception.Message);
+            }
+        }
+
+        public class NotNullOrEmptyOnCollection
+        {
+            [Fact]
+            public void Valid_argument_returns_value()
+            {
+                // Arrange
+                var value = new List<string>() { "Foo", "Bar" };
+                // Act
+                var result = Check.NotNullOrEmpty(value);
+                // Assert
+                Assert.Equal(expected: value, actual: result);
+            }
+
+            [Fact]
+            public void Null_argument_throws_exception()
+            {
+                // Arrange
+                List<string> value = null;
+                // Act
+                void act() => Check.NotNullOrEmpty(value);
+                // Assert
+                var exception = Assert.Throws<ArgumentNullException>(act);
+            }
+
+            [Fact]
+            public void Null_argument_throws_exception_with_param_name()
+            {
+                // Arrange
+                List<string> value = null;
+                string paramName = nameof(value);
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName);
+                // Assert
+                var exception = Assert.Throws<ArgumentNullException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+            }
+
+            [Fact]
+            public void Null_argument_throws_exception_with_param_name_and_custom_message()
+            {
+                // Arrange
+                List<string> value = null;
+                string paramName = nameof(value);
+                string message = "Foo";
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName, message);
+                // Assert
+                var exception = Assert.Throws<ArgumentNullException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+                Assert.Equal(expected: "Foo (Parameter 'value')", actual: exception.Message);
+            }
+
+            [Fact]
+            public void Empty_argument_throws_exception()
+            {
+                // Arrange
+                var value = new List<string>();
+                // Act
+                void act() => Check.NotNullOrEmpty(value);
+                // Assert
+                var exception = Assert.Throws<ArgumentException>(act);
+            }
+
+            [Fact]
+            public void Empty_argument_throws_exception_with_param_name()
+            {
+                // Arrange
+                var value = new List<string>();
+                string paramName = nameof(value);
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName);
+                // Assert
+                var exception = Assert.Throws<ArgumentException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+            }
+
+            [Fact]
+            public void Empty_argument_throws_exception_with_param_name_and_custom_message()
+            {
+                // Arrange
+                var value = new List<string>();
                 string paramName = nameof(value);
                 string message = "Foo";
                 // Act

@@ -11,19 +11,26 @@ from command line
 > dotnet add package Ninjanaut.Preconditions
 ```
 
+| Version | Targets |
+|- |- |
+| 1.x | .NET 5 |
+
 # Usage
 
 ```csharp
 using Ninjanaut.Preconditions;
 
+// any parameter
 Check.NotNull(parameter);
 Check.NotNull(parameter, nameof(parameter));
 Check.NotNull(parameter, nameof(parameter), "Parameter cannot be null.");
 
+// string parameter or List<object> parameter
 Check.NotNullOrEmpty(parameter);
 Check.NotNullOrEmpty(parameter, nameof(parameter));
 Check.NotNullOrEmpty(parameter, nameof(parameter), "Parameter cannot be null or empty.");
 
+// any custom check
 Check.Require(x > 0);
 Check.Require(x > 0, "Parameter x has to be greater than zero!");
 Check.Require(x > 0, "Parameter x has to be greater than zero!", nameof(x));
@@ -31,6 +38,7 @@ Check.Require(x > 0, "Parameter x has to be greater than zero!", nameof(x));
 // It's also possible to assign the value directly from the checks.
 var foo = Check.NotNull(parameter);
 string bar = Check.NotNullOrEmpty(parameter);
+List<object> foobars = Check.NotNullOrEmpty(parameter);
 ```
 
 # Adding your custom checks
@@ -58,7 +66,13 @@ MyCheck.NotZero(parameter);
 Check.NotNull(parameter);
 ```
 
+# Release notes
+
+| Version | Note |
+|- |- |
+| 1.1.0 | Add NotNullOrEmpty method for collection arguments |
+| 1.0.0 | Initial release |
+
 # Contribution
 
 If you would like to contribute to the project, please send a pull request to the dev branch.
-
