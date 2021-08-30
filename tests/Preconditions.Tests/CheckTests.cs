@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Ninjanaut.Preconditions.Tests
@@ -164,8 +165,6 @@ namespace Ninjanaut.Preconditions.Tests
                 Assert.Equal(expected: "Foo (Parameter 'value')", actual: exception.Message);
             }
 
-
-
             [Fact]
             public void Empty_argument_throws_exception()
             {
@@ -195,6 +194,98 @@ namespace Ninjanaut.Preconditions.Tests
             {
                 // Arrange
                 string value = string.Empty;
+                string paramName = nameof(value);
+                string message = "Foo";
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName, message);
+                // Assert
+                var exception = Assert.Throws<ArgumentException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+                Assert.Equal(expected: "Foo (Parameter 'value')", actual: exception.Message);
+            }
+        }
+
+        public class NotNullOrEmptyOnCollection
+        {
+            [Fact]
+            public void Valid_argument_returns_value()
+            {
+                // Arrange
+                var value = new List<string>() { "Foo", "Bar" };
+                // Act
+                var result = Check.NotNullOrEmpty(value);
+                // Assert
+                Assert.Equal(expected: value, actual: result);
+            }
+
+            [Fact]
+            public void Null_argument_throws_exception()
+            {
+                // Arrange
+                List<string> value = null;
+                // Act
+                void act() => Check.NotNullOrEmpty(value);
+                // Assert
+                var exception = Assert.Throws<ArgumentNullException>(act);
+            }
+
+            [Fact]
+            public void Null_argument_throws_exception_with_param_name()
+            {
+                // Arrange
+                List<string> value = null;
+                string paramName = nameof(value);
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName);
+                // Assert
+                var exception = Assert.Throws<ArgumentNullException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+            }
+
+            [Fact]
+            public void Null_argument_throws_exception_with_param_name_and_custom_message()
+            {
+                // Arrange
+                List<string> value = null;
+                string paramName = nameof(value);
+                string message = "Foo";
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName, message);
+                // Assert
+                var exception = Assert.Throws<ArgumentNullException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+                Assert.Equal(expected: "Foo (Parameter 'value')", actual: exception.Message);
+            }
+
+            [Fact]
+            public void Empty_argument_throws_exception()
+            {
+                // Arrange
+                var value = new List<string>();
+                // Act
+                void act() => Check.NotNullOrEmpty(value);
+                // Assert
+                var exception = Assert.Throws<ArgumentException>(act);
+            }
+
+            [Fact]
+            public void Empty_argument_throws_exception_with_param_name()
+            {
+                // Arrange
+                var value = new List<string>();
+                string paramName = nameof(value);
+                // Act
+                void act() => Check.NotNullOrEmpty(value, paramName);
+                // Assert
+                var exception = Assert.Throws<ArgumentException>(paramName, act);
+                Assert.Equal(expected: paramName, actual: exception.ParamName);
+            }
+
+            [Fact]
+            public void Empty_argument_throws_exception_with_param_name_and_custom_message()
+            {
+                // Arrange
+                var value = new List<string>();
                 string paramName = nameof(value);
                 string message = "Foo";
                 // Act
