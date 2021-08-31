@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/Ninjanaut/Preconditions</PackageProjectUrl>
     <PackageTags>preconditions, check, guard, contracts, guava</PackageTags>
     <PackageId>Ninjanaut.Preconditions</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
 </Project>
