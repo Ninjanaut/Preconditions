@@ -67,7 +67,7 @@ namespace Ninjanaut.Preconditions
         /// <returns> Value argument. </returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public static List<T> NotNullOrEmpty<T>(List<T> value, string paramName = null, string message = null)
+        public static IList<T> NotNullOrEmpty<T>(IList<T> value, string paramName = null, string message = null)
         {
             NotNull(value, paramName, message);
 
