@@ -25,7 +25,7 @@ Check.NotNull(parameter);
 Check.NotNull(parameter, nameof(parameter));
 Check.NotNull(parameter, nameof(parameter), "Parameter cannot be null.");
 
-// string parameter or List<object> parameter
+// string parameter or IList<object> parameter
 Check.NotNullOrEmpty(parameter);
 Check.NotNullOrEmpty(parameter, nameof(parameter));
 Check.NotNullOrEmpty(parameter, nameof(parameter), "Parameter cannot be null or empty.");
@@ -70,6 +70,7 @@ Check.NotNull(parameter);
 
 | Version | Note |
 |- |- |
+| 1.1.1 | Change NotNullOrEmpty method signature from List to IList |
 | 1.1.0 | Add NotNullOrEmpty method for collection arguments |
 | 1.0.0 | Initial release |
 
