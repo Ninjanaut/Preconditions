@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Preconditions</name>
+    </assembly>
+    <members>
+        <member name="M:Ninjanaut.Preconditions.Check.Require(System.Boolean,System.String,System.String)">
+            <summary>
+            Ensures that an expression is true, otherwise throws an ArgumentException.
+            </summary>
+            <param name="expression"> Condition that has to be true. </param>
+            <param name="paramName"> The name of the parameter that caused the current exception. </param>
+            <param name="message"> The error message that explains the reason for the exception. </param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Ninjanaut.Preconditions.Check.NotNull``1(``0,System.String,System.String)">
+            <summary>
+            Ensures that an argument is not null, otherwise throws an ArgumentException.
+            </summary>
+            <param name="value"> Argument to test </param>
+            <param name="paramName"> The name of the parameter that caused the current exception. </param>
+            <param name="message"> The error message that explains the reason for the exception. </param>
+            <returns> Value argument. </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Ninjanaut.Preconditions.Check.NotNullOrEmpty(System.String,System.String,System.String)">
+            <summary>
+            Ensures that an argument is not null and is not empty, otherwise throws an ArgumentNullException or ArgumentException.
+            </summary>
+            <param name="value"> Argument to test </param>
+            <param name="paramName"> The name of the parameter that caused the current exception. </param>
+            <param name="message"> The error message that explains the reason for the exception. </param>
+            <returns> Value argument. </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Ninjanaut.Preconditions.Check.NotNullOrEmpty``1(System.Collections.Generic.IList{``0},System.String,System.String)">
+            <summary>
+            Ensures that an argument is not null and is not empty, otherwise throws an ArgumentNullException or ArgumentException.
+            </summary>
+            <param name="value"> Argument to test </param>
+            <param name="paramName"> The name of the parameter that caused the current exception. </param>
+            <param name="message"> The error message that explains the reason for the exception. </param>
+            <returns> Value argument. </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+    </members>
+</doc>

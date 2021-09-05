@@ -1,4 +1,6 @@
-Welcome to the Preconditions project website! Preconditions is simple and lightweight C# library to ease arguments checks.
+# Ninjanaut.Preconditions
+
+Welcome to the project website! Preconditions is simple and lightweight C# library to ease arguments checks.
 
 # Installation
 
@@ -70,6 +72,7 @@ Check.NotNull(parameter);
 
 | Version | Note |
 |- |- |
+| 1.1.2 | XML documentation file added |
 | 1.1.1 | Change NotNullOrEmpty method signature from List to IList |
 | 1.1.0 | Add NotNullOrEmpty method for collection arguments |
 | 1.0.0 | Initial release |

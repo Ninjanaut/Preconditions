@@ -13,7 +13,12 @@
     <PackageProjectUrl>https://github.com/Ninjanaut/Preconditions</PackageProjectUrl>
     <PackageTags>preconditions, check, guard, contracts, guava</PackageTags>
     <PackageId>Ninjanaut.Preconditions</PackageId>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Lukas\Desktop\Documents\workspace\GitHub\Preconditions\src\Preconditions\Preconditions.xml</DocumentationFile>
+    <NoWarn>1701;1702;CS1591</NoWarn>
   </PropertyGroup>
 
 </Project>
